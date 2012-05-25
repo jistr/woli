@@ -3,10 +3,11 @@ require 'yaml'
 module Woli
   class Config
     CONFIG_FILE_NAME = "#{ENV['HOME']}/.woli/config.yml"
-    DEFAULT_CONFIG_FILE_NAME = File.join(File.dirname(__FILE__), '../../templates/default_config.yml')
+    DEFAULT_CONFIG_FILE_NAME = File.join(File.dirname(__FILE__),
+                                         '../../templates/default_config.yml')
 
     def self.load_user_config
-      create_default_config_file(CONFIG_FILE_NAME) unless File.exist?(CONFIG_FILE_NAME)
+      create_default_config_file(CONFIG_FILE_NAME) unless File.exists?(CONFIG_FILE_NAME)
       YAML.load_file(CONFIG_FILE_NAME)
     end
 
