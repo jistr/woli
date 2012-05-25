@@ -20,24 +20,24 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Woli::VERSION
 
-  s.add_dependency 'thor', '~> 0.15.2'
+  gem.add_dependency 'thor', '~> 0.15.2'
 
   # == DEVELOPMENT DEPENDENCIES ==
   # Smart irb
-  s.add_development_dependency 'pry'
+  gem.add_development_dependency 'pry'
 
   # Specs
-  s.add_development_dependency 'minitest'
-  # s.add_development_dependency 'mocha'
+  gem.add_development_dependency 'minitest'
+  # gem.add_development_dependency 'mocha'
 
   # Running tests during development
-  s.add_development_dependency 'guard'
-  s.add_development_dependency 'guard-minitest'
+  gem.add_development_dependency 'guard'
+  gem.add_development_dependency 'guard-minitest'
   # Linux Guard watching
-  s.add_development_dependency 'rb-inotify'
+  gem.add_development_dependency 'rb-inotify'
   # Linux Guard notifications
-  s.add_development_dependency 'libnotify'
+  gem.add_development_dependency 'libnotify'
 
   # Pretty printed test output
-  s.add_development_dependency 'turn'
+  gem.add_development_dependency 'turn'
 end
