@@ -1,4 +1,6 @@
 diary_path: ~/.woli/diary
+diary_entry_extension: md
+editor:
 
 notification:
   missing_entries:

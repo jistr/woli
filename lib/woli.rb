@@ -9,6 +9,10 @@ module Woli
   end
 
   def self.diary_path
-    File.expand_path(@config['diary_path'])
+    File.expand_path(config['diary_path'])
+  end
+
+  def self.editor
+    config['editor'] || ENV['EDITOR'] || 'vim'
   end
 end
