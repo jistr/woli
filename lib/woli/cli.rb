@@ -1,3 +1,4 @@
+require 'woli'
 require 'thor'
 
 module Woli
