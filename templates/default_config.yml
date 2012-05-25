@@ -1,0 +1,6 @@
+diary_path: ~/.woli/diary
+
+notification:
+  missing_entries:
+    days: 1
+    command: "notify-send 'Woli diary is missing entries.'"
