@@ -8,6 +8,10 @@ module Woli
     @config ||= Woli::Config.load_user_config
   end
 
+  def self.diary
+    @diary ||= Woli::Diary.new(diary_path)
+  end
+
   def self.diary_path
     File.expand_path(config['diary_path'])
   end

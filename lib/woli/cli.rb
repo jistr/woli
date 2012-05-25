@@ -7,3 +7,5 @@ module Woli
 end
 
 require 'woli/cli/edit'
+require 'woli/cli/notify'
+require 'woli/cli/status'

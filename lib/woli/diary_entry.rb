@@ -17,11 +17,13 @@ module Woli
       end
     end
 
+    def date
+      self.class.date_for_path(@path)
+    end
+
     def self.for_day(date)
       self.new(self.path_for_date(date))
     end
-
-    private
 
     def self.path_for_date(date)
       File.join(
@@ -30,6 +32,12 @@ module Woli
         date.strftime('%m'),
         date.strftime("%Y-%m-%d.#{Woli.config['diary_entry_extension']}")
       )
+    end
+
+    def self.date_for_path(path)
+      basename = File.basename(path).gsub(/\.[^\.]*$/, '')
+      year, month, day = basename.split('-').map { |string| string.to_i }
+      DateTime.new(year, month, day)
     end
   end
 end
