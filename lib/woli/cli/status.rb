@@ -4,8 +4,7 @@ module Woli
     def status
       puts "Woli Diary Status"
       puts "================="
-      puts "Missing entries since the last entry: #{Woli.diary.missing_entries_count}"
-      puts "Diary located at: #{Woli.diary.path}"
+      puts "Missing entries since the last one: #{Woli.diary.missing_entries_count}"
     end
   end
 end

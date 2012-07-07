@@ -1,9 +1,9 @@
 module Woli
   class DiaryEntry
-    attr_reader :path
+    attr_reader :repository
 
-    def initialize(path)
-      @path = path
+    def initialize(repository)
+      @repository = repository
     end
 
     def exists?

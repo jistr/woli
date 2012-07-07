@@ -1,5 +1,8 @@
-diary_path: ~/.woli/diary
-diary_entry_extension: md
+repository_class: 'Woli::Repositories::Files'
+repository_config:
+  path: ~/.woli/diary
+  entry_extension: md
+
 editor:
 
 notification:
