@@ -4,8 +4,9 @@ repository_config:
   entry_extension: md
 
 editor:
+edit_entry_extension: md
 
 notification:
   missing_entries:
     days: 1
-    command: "notify-send 'Woli diary is missing entries.'"
+    command: "notify-send 'Woli diary is hungry for entries.'"
