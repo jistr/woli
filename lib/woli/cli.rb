@@ -1,4 +1,5 @@
 require 'woli'
+require 'woli/date_parser'
 require 'thor'
 
 module Woli
