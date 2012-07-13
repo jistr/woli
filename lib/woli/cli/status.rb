@@ -4,7 +4,7 @@ module Woli
     def status
       entries_dates = Woli.diary.all_entries_dates
       date_format = '%d-%m-%Y'
-      coverage = entries_dates.count / Float(entries_dates.last - entries_dates.first)
+      coverage = entries_dates.count / Float(entries_dates.last - entries_dates.first + 1)
 
       puts "Woli Diary Status"
       puts "================="
