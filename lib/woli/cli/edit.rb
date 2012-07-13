@@ -6,14 +6,16 @@ module Woli
 
       Specifying DAY:
 
-      1) Via date: woli edit DD[-MM[-YYYY]]
-      Use hyphens, dots or slashes to separate day/month/year.
-      If year or month is not given, current year (current month) is assumed.
+      1) Implicitly: If no date is given, 'today' is assumed.
 
       2) Via keywords: woli edit [today|yesterday]
 
-      3) Implicitly: If no date is given, 'today' is assumed.
+      3) Via date: woli edit DD[-MM[-YYYY]]
+      Use hyphens, dots or slashes to separate day/month/year.
+      If year or month is not given, current year (current month) is assumed.
     END
+      # 4) Via days ago: woli edit ^DAYS
+      # Where DAYS is a number of days ago (^1 is yesterday, ^7 is a week ago etc.)
     def edit(fuzzy_date = 'today')
       date = parse_date(fuzzy_date)
       entry = Woli.repository.load_entry(date) || DiaryEntry.new(date, '', Woli.repository)
