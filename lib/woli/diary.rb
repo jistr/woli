@@ -6,6 +6,10 @@ module Woli
       @repository = repository
     end
 
+    def all_entries_dates
+      @repository.all_entries_dates
+    end
+
     def missing_entries_count
       last_entry_date = @repository.all_entries_dates.last
       return 0 unless last_entry_date

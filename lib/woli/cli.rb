@@ -8,5 +8,6 @@ module Woli
 end
 
 require 'woli/cli/edit'
+require 'woli/cli/list'
 require 'woli/cli/notify'
 require 'woli/cli/status'
