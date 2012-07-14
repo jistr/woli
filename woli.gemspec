@@ -28,7 +28,7 @@ Gem::Specification.new do |gem|
 
   # Specs
   gem.add_development_dependency 'minitest'
-  # gem.add_development_dependency 'mocha'
+  gem.add_development_dependency 'mocha'
 
   # Running tests during development
   gem.add_development_dependency 'guard'
