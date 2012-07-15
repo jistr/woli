@@ -40,6 +40,33 @@ describe Woli::Repositories::Files do
     end
   end
 
+  describe "#load_entry" do
+    it "loads an entry from a file" do
+      new_entry = :fake_new_entry
+
+      File.expects(:exists?)
+        .with(@entry_path)
+        .returns(true)
+
+      File.expects(:read)
+        .with(@entry_path)
+        .returns('entry text')
+
+      class Woli::DiaryEntry; end
+      Woli::DiaryEntry.expects(:new).with(@entry.date, 'entry text', @repository).returns(new_entry)
+
+      @repository.load_entry(@entry.date).must_equal(new_entry)
+    end
+
+    it "returns nil if file for that date doesn't exist" do
+      File.expects(:exists?)
+        .with(@entry_path)
+        .returns(false)
+
+      @repository.load_entry(@entry.date).must_be_nil
+    end
+  end
+
   describe "#save_entry" do
     it "writes the text into a file" do
       File.expects(:write).with(@entry_path, @entry.text).returns(@entry.text.length)
