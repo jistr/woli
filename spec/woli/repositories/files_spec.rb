@@ -3,31 +3,31 @@ require 'woli/repositories/files'
 
 describe Woli::Repositories::Files do
   before do
-    @repository_config = {
+    @config = {
       'path' => '/tmp/fake_diary_path',
       'entry_extension' => 'md'
     }
 
-    @repository = Woli::Repositories::Files.new(@repository_config)
+    @repository = Woli::Repositories::Files.new(@config)
 
     @entry = stub(
       :date => Date.new(2012, 7, 6),
       :text => 'entry text',
       :repository => @repository
     )
-    @entry_path = "#{@repository_config['path']}/2012/07/2012-07-06.#{@repository_config['entry_extension']}"
+    @entry_path = "#{@config['path']}/2012/07/2012-07-06.#{@config['entry_extension']}"
   end
 
   describe "#all_entries_dates" do
     before do
       Dir.stubs(:glob)
-        .with("#{@repository_config['path']}/**/*.#{@repository_config['entry_extension']}")
+        .with("#{@config['path']}/**/*.#{@config['entry_extension']}")
         .returns([
-          "#{@repository_config['path']}/2012/07/2012-07-06.#{@repository_config['entry_extension']}",
-          "#{@repository_config['path']}/2012/07/2012-07-04.#{@repository_config['entry_extension']}",
-          "#{@repository_config['path']}/2012/07/2012-07-05.#{@repository_config['entry_extension']}",
-          "#{@repository_config['path']}/2012/07/maliciously_named_file.#{@repository_config['entry_extension']}",
-          "#{@repository_config['path']}/2012/07/2012-07-03-this-aint-right.#{@repository_config['entry_extension']}"
+          "#{@config['path']}/2012/07/2012-07-06.#{@config['entry_extension']}",
+          "#{@config['path']}/2012/07/2012-07-04.#{@config['entry_extension']}",
+          "#{@config['path']}/2012/07/2012-07-05.#{@config['entry_extension']}",
+          "#{@config['path']}/2012/07/maliciously_named_file.#{@config['entry_extension']}",
+          "#{@config['path']}/2012/07/2012-07-03-this-aint-right.#{@config['entry_extension']}"
         ])
     end
 
