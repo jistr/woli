@@ -40,4 +40,10 @@ describe Woli::Diary do
       @diary.load_or_create_entry(@nonexistent_entry_date).must_equal @new_entry
     end
   end
+
+  describe "#all_entries_dates" do
+    it "delegates the call to the repository" do
+      @diary.all_entries_dates.must_equal @repository.all_entries_dates
+    end
+  end
 end
