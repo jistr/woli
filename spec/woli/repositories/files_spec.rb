@@ -15,11 +15,11 @@ describe Woli::Repositories::Files do
       Dir.stubs(:glob)
         .with("#{@repository_config['path']}/**/*.#{@repository_config['entry_extension']}")
         .returns([
-          '/tmp/fake_diary_path/2012/07/2012-07-06.md',
-          '/tmp/fake_diary_path/2012/07/2012-07-04.md',
-          '/tmp/fake_diary_path/2012/07/2012-07-05.md',
-          '/tmp/fake_diary_path/2012/07/maliciously_named_file.md',
-          '/tmp/fake_diary_path/2012/07/2012-07-03-this-aint-right.md'
+          "#{@repository_config['path']}/2012/07/2012-07-06.#{@repository_config['entry_extension']}",
+          "#{@repository_config['path']}/2012/07/2012-07-04.#{@repository_config['entry_extension']}",
+          "#{@repository_config['path']}/2012/07/2012-07-05.#{@repository_config['entry_extension']}",
+          "#{@repository_config['path']}/2012/07/maliciously_named_file.#{@repository_config['entry_extension']}",
+          "#{@repository_config['path']}/2012/07/2012-07-03-this-aint-right.#{@repository_config['entry_extension']}"
         ])
     end
 
