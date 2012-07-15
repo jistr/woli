@@ -46,4 +46,24 @@ describe Woli::Diary do
       @diary.all_entries_dates.must_equal @repository.all_entries_dates
     end
   end
+
+  describe "#missing_entries_count" do
+    it "returns 0 when the last entry is for today" do
+      Timecop.freeze(@repository.all_entries_dates.last) do
+        @diary.missing_entries_count.must_equal 0
+      end
+    end
+
+    it "returns 1 when the last entry is for yesterday" do
+      Timecop.freeze(@repository.all_entries_dates.last + 1) do
+        @diary.missing_entries_count.must_equal 1
+      end
+    end
+
+    it "returns 7 when the last entry is for a day week ago" do
+      Timecop.freeze(@repository.all_entries_dates.last + 7) do
+        @diary.missing_entries_count.must_equal 7
+      end
+    end
+  end
 end
