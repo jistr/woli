@@ -7,7 +7,15 @@ describe Woli::Repositories::Files do
       'path' => '/tmp/fake_diary_path',
       'entry_extension' => 'md'
     }
+
     @repository = Woli::Repositories::Files.new(@repository_config)
+
+    @entry = stub(
+      :date => Date.new(2012, 7, 6),
+      :text => 'entry text',
+      :repository => @repository
+    )
+    @entry_path = "#{@repository_config['path']}/2012/07/2012-07-06.#{@repository_config['entry_extension']}"
   end
 
   describe "#all_entries_dates" do
@@ -29,6 +37,35 @@ describe Woli::Repositories::Files do
         Date.new(2012, 7, 5),
         Date.new(2012, 7, 6)
       ]
+    end
+  end
+
+  describe "#save_entry" do
+    it "writes the text into a file" do
+      File.expects(:write).with(@entry_path, @entry.text).returns(@entry.text.length)
+
+      @repository.save_entry(@entry)
+    end
+  end
+
+  describe "#delete_entry" do
+    it "does nothing if the file does not exist" do
+      File.expects(:exists?)
+        .with(@entry_path)
+        .returns(false)
+
+      @repository.delete_entry(@entry).must_be_nil
+    end
+
+    it "deletes the file with entry contents" do
+      File.expects(:exists?)
+        .with(@entry_path)
+        .returns(true)
+      File.expects(:delete)
+        .with(@entry_path)
+        .returns(1)
+
+      @repository.delete_entry(@entry)
     end
   end
 end
