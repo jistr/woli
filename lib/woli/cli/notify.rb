@@ -7,6 +7,8 @@ module Woli
       if Woli.diary.missing_entries_count >= notify_config['days']
         `#{notify_config['command']}`
       end
+    rescue ConfigError => e
+      raise Thor::Error, e.message
     end
   end
 end

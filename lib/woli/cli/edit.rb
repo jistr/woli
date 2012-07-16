@@ -16,6 +16,8 @@ module Woli
       load_text_from_temp_file(entry, temp_file_name)
 
       entry.persist
+    rescue ConfigError => e
+      raise Thor::Error, e.message
     end
 
     private

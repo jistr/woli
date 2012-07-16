@@ -12,6 +12,8 @@ module Woli
       puts "Last entry: #{entries_dates.last.strftime(date_format)}"
       puts "Coverage: %2d %" % (coverage * 100).round
       puts "Missing entries since the last one: #{Woli.diary.missing_entries_count}"
+    rescue ConfigError => e
+      raise Thor::Error, e.message
     end
   end
 end
