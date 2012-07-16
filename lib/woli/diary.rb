@@ -24,7 +24,7 @@ module Woli
     def missing_entries_count
       last_entry_date = @repository.all_entries_dates.last
       return 0 unless last_entry_date
-      Date.today - last_entry_date
+      Integer(Date.today - last_entry_date)
     end
   end
 end

@@ -48,6 +48,12 @@ describe Woli::Diary do
   end
 
   describe "#missing_entries_count" do
+    it "returns an Integer" do
+      Timecop.freeze(@repository.all_entries_dates.last + 1) do
+        @diary.missing_entries_count.must_be_kind_of Integer
+      end
+    end
+
     it "returns 0 when the last entry is for today" do
       Timecop.freeze(@repository.all_entries_dates.last) do
         @diary.missing_entries_count.must_equal 0
