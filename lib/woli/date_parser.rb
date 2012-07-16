@@ -22,7 +22,7 @@ module Woli
 
     def self.parse_date(fuzzy_date)
       case fuzzy_date
-      when 'today', 't', nil
+      when 'today', 't'
         Date.today
       when 'yesterday', 'y'
         Date.today - 1
@@ -35,9 +35,7 @@ module Woli
         day = $~[:day] ? Integer($~[:day]) : today.day
         Date.new(year, month, day)
       else
-        self.class.task_help(shell, 'edit')
-        puts
-        raise MalformattedArgumentError, "'#{fuzzy_date}' is not a valid way to specify a date."
+        raise Thor::MalformattedArgumentError, "'#{fuzzy_date}' is not a valid way to specify a date."
       end
     end
   end

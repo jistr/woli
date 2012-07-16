@@ -1,5 +1,6 @@
 require_relative '../spec_helper'
 require 'woli/date_parser'
+require 'thor'
 
 describe Woli::DateParser do
   before do
@@ -10,10 +11,6 @@ describe Woli::DateParser do
 
   after do
     Timecop.return
-  end
-
-  it "parses nil as today" do
-    @parser.parse_date(nil).must_equal @today
   end
 
   it "parses 't' and 'today' as today" do
@@ -64,5 +61,9 @@ describe Woli::DateParser do
     date1.must_equal date2
     date1.must_equal date3
     date1.must_equal date4
+  end
+
+  it "raises error for nil" do
+    proc { @parser.parse_date(nil) }.must_raise Thor::MalformattedArgumentError
   end
 end
