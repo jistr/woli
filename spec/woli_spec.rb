@@ -81,4 +81,36 @@ describe Woli do
       Woli.editor.must_equal 'vim'
     end
   end
+
+  describe ".repository" do
+    before do
+      module Woli
+        @config = {
+          'repository_class' => 'Woli::FakeRepository',
+          'repository_config' => :fake_config
+        }
+
+        class FakeRepository ; end
+      end
+    end
+
+    after do
+      module Woli
+        @config = nil
+        @repository = nil
+      end
+    end
+
+    it "returns repository if already created" do
+      module Woli
+        @repository = :fake_repository
+      end
+      Woli.repository.must_equal :fake_repository
+    end
+
+    it "creates a new repository if not yet created" do
+      Woli::FakeRepository.expects(:new).with(:fake_config).returns(:fake_repository)
+      Woli.repository.must_equal :fake_repository
+    end
+  end
 end
