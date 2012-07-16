@@ -1,7 +1,7 @@
 require 'yaml'
 
 module Woli
-  class Config
+  module Config
     CONFIG_FILE_NAME = "#{ENV['HOME']}/.woli/config.yml"
     DEFAULT_CONFIG_FILE_NAME = File.join(File.dirname(__FILE__),
                                          '../../templates/default_config.yml')
