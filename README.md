@@ -4,7 +4,7 @@ Geek's diary keeper, currently in pre-alpha state :)
 
 ## Why would a grown person keep a diary?
 
-*   The ability to recall why a particular time of our life was worth living is crucial for your
+*   The ability to recall why a particular time of your life was worth living is crucial for your
     long term happiness. Can you recall what you did during this week four years ago? If you can't,
     it doesn't mean the week was not worth living, but it does mean that you can't derive a feeling
     of happiness and satisfaction from knowing *why* it was worth living. Keeping a diary helps you
