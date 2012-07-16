@@ -9,7 +9,7 @@ require "woli/repositories/files"
 
 module Woli
   def self.config
-    @config ||= Woli::Config.load_user_config
+    @config ||= Woli::Config.load_config
   end
 
   def self.diary

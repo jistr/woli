@@ -6,7 +6,7 @@ module Woli
     DEFAULT_CONFIG_FILE_NAME = File.join(File.dirname(__FILE__),
                                          '../../templates/default_config.yml')
 
-    def self.load_user_config
+    def self.load_config
       if File.exists?(CONFIG_FILE_NAME)
         YAML.load_file(CONFIG_FILE_NAME)
       else
