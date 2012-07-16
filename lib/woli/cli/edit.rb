@@ -8,7 +8,7 @@ module Woli
     END
     def edit(fuzzy_date = 'today')
       date = DateParser.parse_date(fuzzy_date)
-      entry = Woli.repository.load_entry(date) || DiaryEntry.new(date, '', Woli.repository)
+      entry = Woli.diary.load_or_create_entry(date)
 
       temp_file_name = generate_temp_file_name(entry)
       save_text_to_temp_file(entry, temp_file_name)
