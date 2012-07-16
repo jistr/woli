@@ -10,7 +10,7 @@ Geek's diary keeper, currently in pre-alpha state :)
     of happiness and satisfaction from knowing *why* it was worth living. Keeping a diary helps you
     recall. You won't lose memories that are worth keeping.
 
-*   A diary helps you reflect on how you spent your time. In a long run, keeping a diary increases
+*   A diary helps you reflect on how you spent your time. In the long run, keeping a diary increases
     your ability to recognize what's really important for you, what makes you happy. You will be
     able to shape your days to contain more of those happy moments and important stuff. You will
     be able to point your life in a direction that will bring you satisfaction and happiness.
