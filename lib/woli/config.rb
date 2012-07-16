@@ -7,13 +7,19 @@ module Woli
                                          '../../templates/default_config.yml')
 
     def self.load_user_config
-      create_default_config_file(CONFIG_FILE_NAME) unless File.exists?(CONFIG_FILE_NAME)
-      YAML.load_file(CONFIG_FILE_NAME)
+      if File.exists?(CONFIG_FILE_NAME)
+        YAML.load_file(CONFIG_FILE_NAME)
+      else
+        raise ConfigError, "Woli not yet initialized. Run 'woli help init' for more info."
+      end
     end
 
     def self.create_default_config_file(file_name)
       FileUtils.mkdir_p(File.dirname(file_name))
       FileUtils.cp(DEFAULT_CONFIG_FILE_NAME, file_name)
     end
+  end
+
+  class ConfigError < RuntimeError
   end
 end
