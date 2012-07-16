@@ -14,7 +14,7 @@ module Woli
       end
     end
 
-    def self.create_default_config_file
+    def self.create_config_file_from_template
       unless File.exists?(CONFIG_FILE_NAME)
         FileUtils.mkdir_p(File.dirname(CONFIG_FILE_NAME))
         FileUtils.cp(DEFAULT_CONFIG_FILE_NAME, CONFIG_FILE_NAME)

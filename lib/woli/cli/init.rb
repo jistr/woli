@@ -5,7 +5,7 @@ module Woli
       Creates a ~/.woli directory with Woli configuration.
     END
     def init
-      created_config_file_path = Woli::Config.create_default_config_file
+      created_config_file_path = Woli::Config.create_config_file_from_template
       if created_config_file_path
         puts "Default config file created at #{created_config_file_path}."
       else
