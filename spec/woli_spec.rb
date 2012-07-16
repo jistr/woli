@@ -48,4 +48,37 @@ describe Woli do
       Woli.diary.must_equal :fake_diary
     end
   end
+
+  describe ".editor" do
+    before do
+      @old_env_editor = ENV['EDITOR']
+      module Woli
+        @config = { 'editor' => nil }
+      end
+    end
+
+    after do
+      module Woli
+        @config = nil
+      end
+      ENV['EDITOR'] = @old_env_editor
+    end
+
+    it "returns an editor set in the config file if present" do
+      module Woli
+        @config = { 'editor' => 'strange_editor' }
+      end
+      Woli.editor.must_equal 'strange_editor'
+    end
+
+    it "returns an editor set via environment variable if not set via config file" do
+      ENV['EDITOR'] = 'emacs'
+      Woli.editor.must_equal 'emacs'
+    end
+
+    it "returns vim if no environment variable or config file sets the editor" do
+      ENV['EDITOR'] = nil
+      Woli.editor.must_equal 'vim'
+    end
+  end
 end
