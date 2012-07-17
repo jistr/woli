@@ -1,10 +1,10 @@
-require_relative '../spec_helper'
-require 'woli/date_parser'
+require_relative '../../spec_helper'
+require 'woli/cli/date_parser'
 require 'thor'
 
-describe Woli::DateParser do
+describe Woli::Cli::DateParser do
   before do
-    @parser = Woli::DateParser
+    @parser = Woli::Cli::DateParser
     @today = Date.new(2012, 7, 15)
     Timecop.freeze(@today)
   end

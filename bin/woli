@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require "rubygems" # ruby1.9 doesn't "require" it though
 
-require 'woli/cli'
+require 'woli/cli/runner'
 
-Woli::Cli.start
+Woli::Cli::Runner.start
