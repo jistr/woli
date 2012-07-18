@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative '../../spec_helper'
 require 'woli/cli/runner'
 
 describe Woli::Cli::Runner do
