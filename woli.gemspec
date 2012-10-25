@@ -23,6 +23,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'thor', '>= 0.15'
 
   # == DEVELOPMENT DEPENDENCIES ==
+  gem.add_development_dependency 'rake'
+
   # Smart irb
   gem.add_development_dependency 'pry'
 
