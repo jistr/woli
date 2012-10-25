@@ -20,7 +20,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Woli::VERSION
 
-  gem.add_dependency 'thor', '~> 0.15.2'
+  gem.add_dependency 'thor', '>= 0.15'
 
   # == DEVELOPMENT DEPENDENCIES ==
   # Smart irb
